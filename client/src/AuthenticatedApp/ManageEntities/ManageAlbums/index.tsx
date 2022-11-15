@@ -9,6 +9,7 @@ import { useState } from 'react';
 import NewJobDialog from './NewJobDialog';
 import useOpen from '../../../hooks/use-open';
 import useToggle from '../../../hooks/use-toggle';
+import InterestedDialog from './InterestedDialog';
 
 const albums = [
   {
@@ -41,7 +42,8 @@ const ManageAlbums = () => {
       setAlignment(newAlignment);
   };
   const [isSearchJob, toggleIsSearchJob] = useToggle(true)
-  const [open, handleClose, handleOpen] = useOpen();
+  const [newJobOpen, handleNewJobClose, handleNewJobOpen] = useOpen();
+  const [interestedOpen, handleInterestedClose, handleInterestedOpen] = useOpen();
 
   return (
     <Stack
@@ -53,44 +55,45 @@ const ManageAlbums = () => {
     >
       <Stack direction='row' justifyContent='space-between' sx={{ width: '85%' }}>
         <ColorToggleButton alignment={alignment} handleChange={handleChange}/>
-        {alignment === 'android' && <Button variant='contained' color='success' onClick={handleOpen} >הוספת תפקיד</Button>}
+        {alignment === 'android' && <Button variant='contained' color='success' onClick={handleNewJobOpen} >הוספת תפקיד</Button>}
       </Stack>
       {albums?.map(album => (
         <CardContainer sx={{ height: '15%', width: '85%' }}>
           <Stack direction='row' sx={{ height: '100%', width: '100%' }}>
             <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
               <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-              <Typography variant='caption'>שם</Typography>
+              <Typography variant='caption'> שם תפקיד</Typography>
             </Stack>
             <Divider orientation='vertical' flexItem />
             <Stack justifyContent='center' sx={{ padding: '10px', width: '22%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>מיקום</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>מעסיק</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>שיוך ארגוני</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
               <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
               <Typography variant='caption'>תיאור</Typography>
             </Stack>
             <Divider orientation='vertical' flexItem />
             <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-              <Typography variant='caption'>מדינת הוצאה</Typography>
+            <Button variant='contained' color='success' onClick={handleInterestedOpen}> אני מעוניין בתפקיד!</Button>
             </Stack>
-            <Divider orientation='vertical' flexItem />
-            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-              <Typography variant='caption'>סוג אלבום</Typography>
-            </Stack>
-            <Divider orientation='vertical' flexItem />
-            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-              <Typography variant='caption'>מאזינים לחישוב</Typography>
-            </Stack>
-            <Divider orientation='vertical' flexItem />
-            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-              <Typography variant='caption'>מגירה/הוצאה</Typography>
-            </Stack>
+            
           </Stack>
         </CardContainer>
       ))}
-      <NewJobDialog open={open} handleClose={handleClose} />
+      <NewJobDialog open={newJobOpen} handleClose={handleNewJobClose} />
+      <InterestedDialog open={interestedOpen} handleClose={handleInterestedClose} />
     </Stack>
   );
 }
