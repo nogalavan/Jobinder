@@ -20,8 +20,9 @@ const NavBar = ({ height }: NavBarProps) => (
       >
         <Grid container flexWrap='nowrap' sx={{ width: 'auto' }}>
           <Grid item>
-            <Typography variant='h5' marginRight='10px'>
-              חזיון שירים | מצעד 41
+          <Typography variant='h5' marginRight='10px'>
+             Jobinder
+              
             </Typography>
           </Grid>
           <Grid
@@ -31,10 +32,8 @@ const NavBar = ({ height }: NavBarProps) => (
             wrap='nowrap'
             sx={{ width: 'auto', height: '100%' }}
           >
-            <NavLink to='/'>ניהול ישויות</NavLink>
-            <NavLink to='/distribute-song'>הפצת שיר</NavLink>
-            <NavLink to='/calculators'>מחשבונים</NavLink>
-            <NavLink to='/users'>משתמשים</NavLink>
+            <NavLink to='/'>תפקידים</NavLink>
+            <NavLink to='/users'>ניהול פרופיל</NavLink>
           </Grid>
         </Grid>
         <Grid

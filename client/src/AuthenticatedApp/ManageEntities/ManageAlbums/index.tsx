@@ -4,6 +4,11 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { CardContainer } from '../../CardContainer';
+import ColorToggleButton from '../toggle';
+import { useState } from 'react';
+import NewJobDialog from './NewJobDialog';
+import useOpen from '../../../hooks/use-open';
+import useToggle from '../../../hooks/use-toggle';
 
 const albums = [
   {
@@ -26,63 +31,68 @@ const albums = [
   }
 ];
 
-const ManageAlbums = () => (
-  <Stack
-    spacing={2}
-    alignItems='center'
-    sx={{
-      height: '100%', width: '100%', paddingTop: '50px', overflow: 'auto'
-    }}
-  >
-    <Stack direction='row' justifyContent='space-between' sx={{ width: '85%' }}>
-      <Typography variant='h4'>אלבומים</Typography>
-      <Button variant='contained' color='success'>יצירת אלבום חדש + </Button>
+const ManageAlbums = () => {
+  const [alignment, setAlignment] = useState('android');
+
+  const handleChange = (
+      event: React.MouseEvent<HTMLElement>,
+      newAlignment: string,
+  ) => {
+      setAlignment(newAlignment);
+  };
+  const [isSearchJob, toggleIsSearchJob] = useToggle(true)
+  const [open, handleClose, handleOpen] = useOpen();
+
+  return (
+    <Stack
+      spacing={2}
+      alignItems='center'
+      sx={{
+        height: '100%', width: '100%', paddingTop: '50px', overflow: 'auto'
+      }}
+    >
+      <Stack direction='row' justifyContent='space-between' sx={{ width: '85%' }}>
+        <ColorToggleButton alignment={alignment} handleChange={handleChange}/>
+        {alignment === 'android' && <Button variant='contained' color='success' onClick={handleOpen} >הוספת תפקיד</Button>}
+      </Stack>
+      {albums?.map(album => (
+        <CardContainer sx={{ height: '15%', width: '85%' }}>
+          <Stack direction='row' sx={{ height: '100%', width: '100%' }}>
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>שם</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '22%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>תיאור</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>מדינת הוצאה</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>סוג אלבום</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>מאזינים לחישוב</Typography>
+            </Stack>
+            <Divider orientation='vertical' flexItem />
+            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+              <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
+              <Typography variant='caption'>מגירה/הוצאה</Typography>
+            </Stack>
+          </Stack>
+        </CardContainer>
+      ))}
+      <NewJobDialog open={open} handleClose={handleClose} />
     </Stack>
-    {albums?.map(album => (
-      <CardContainer sx={{ height: '15%', width: '85%' }}>
-        <Stack direction='row' sx={{ height: '100%', width: '100%' }}>
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>שם</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '22%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>תיאור</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>מדינת הוצאה</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>סוג אלבום</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>מאזינים לחישוב</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
-            <Typography variant='caption'>מגירה/הוצאה</Typography>
-          </Stack>
-          <Divider orientation='vertical' flexItem />
-          <Stack direction='row' justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <IconButton>
-              <EditIcon color='success' />
-            </IconButton>
-            <IconButton>
-              <DeleteForeverIcon color='error' />
-            </IconButton>
-          </Stack>
-        </Stack>
-      </CardContainer>
-    ))}
-  </Stack>
-);
+  );
+}
 
 export default ManageAlbums;

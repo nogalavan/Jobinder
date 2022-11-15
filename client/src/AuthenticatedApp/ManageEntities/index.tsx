@@ -1,27 +1,22 @@
-import { Grid } from '@mui/material';
+import { Grid, ToggleButton, ToggleButtonGroup, Typography, Stack } from '@mui/material';
 import CardLink from '../CardLink';
+import ManageAlbums from './ManageAlbums';
+import ColorToggleButton from './toggle';
+
+const useStyles = () => {
+
+}
 
 const ManageEntities = () => (
-  <Grid container>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>אלבומים</CardLink>
-    </Grid>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>נקודות עבודה</CardLink>
-    </Grid>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>כלי נגינה</CardLink>
-    </Grid>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>תו נלווה</CardLink>
-    </Grid>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>תו מוביל</CardLink>
-    </Grid>
-    <Grid item xs={12} sm={4}>
-      <CardLink to='/manage-entities/manage-albums'>משתנים</CardLink>
-    </Grid>
-  </Grid>
+  // <Stack direction='column' spacing={2} justifySelf>
+  //   <ColorToggleButton />
+  // </Stack>
+  // <Grid container>
+    // <Grid item sm={12} alignItems='center' flexDirection={'column'}>
+      // <ColorToggleButton />
+      <ManageAlbums />
+    // </Grid>
+  // </Grid>
 );
 
 export default ManageEntities;
