@@ -2,7 +2,7 @@
   "name": "hm",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "npx vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "eslint src --ext .jsx,.tsx,.js,.ts",
