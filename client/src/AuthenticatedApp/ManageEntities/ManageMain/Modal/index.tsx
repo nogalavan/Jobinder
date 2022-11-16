@@ -3,14 +3,21 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import { CardContainer } from "../../../CardContainer";
 import { Stack, Typography, Divider, Button } from "@mui/material";
+import axios from 'axios';
 
 interface Props {
     open: boolean;
     handleClose: () => void
 }
 
-const Candidate = ({ open, handleClose, users }: Props) =>
-    <Dialog open={open} onClose={handleClose}>
+const Candidate = ({ open, handleClose, users }: Props) =>{
+    useEffect(() => {
+        axios("http://localhost:3004/jobs").then(
+            res => setJobs(res.data)
+        )
+    }, [])
+
+    return <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{`מעוניינים בתפקיד`}</DialogTitle>
         <DialogContent>
             {users?.map(user => (
@@ -45,5 +52,6 @@ const Candidate = ({ open, handleClose, users }: Props) =>
             ))}
         </DialogContent>
     </Dialog>
+}
 
 export default Candidate;

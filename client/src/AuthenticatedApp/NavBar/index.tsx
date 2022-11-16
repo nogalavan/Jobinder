@@ -1,5 +1,5 @@
 import {
-  AppBar, Grid, Toolbar, Typography
+  AppBar, Avatar, Grid, Toolbar, Typography
 } from '@mui/material';
 import NavLink from './NavLink';
 import Greeting from './Greeting';
@@ -20,10 +20,10 @@ const NavBar = ({ height }: NavBarProps) => (
       >
         <Grid container flexWrap='nowrap' sx={{ width: 'auto' }}>
           <Grid item>
-          <Typography variant='h5' marginRight='10px'>
-             Jobinder
-              
-            </Typography>
+            <Avatar alt="Remy Sharp"
+              src="/img/jobs.jpeg"
+              sx={{ width: '50px', height: '50px' }}>
+            </Avatar>
           </Grid>
           <Grid
             container

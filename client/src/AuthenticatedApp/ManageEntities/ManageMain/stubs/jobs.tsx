@@ -9,7 +9,7 @@ interface Props {
     handleCandidateOpen: () => void
 }
 
-export const jobs = [
+export const jobss = [
     {
         purpose: 'deveops',
         location: 'redhat',
@@ -28,9 +28,7 @@ export const jobs = [
 
 export const DisplayJobs = ({ handleCandidateOpen }: Props) => {
     const [interestedOpen, handleInterestedClose, handleInterestedOpen] = useOpen();
-    const [jobss, setJobs] = useState([]);
-
-    console.log(jobss)
+    const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
         axios("http://localhost:3004/jobs").then(

@@ -64,7 +64,7 @@ const Users = () => {
           </Stack>
           <Stack direction='column' sx={{ width: '100%', marginTop: '5px' }}>
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>פרטים נוספים:</Typography>
-            <TextField disabled label="שירתתי המון המון זמן בצבא" variant="outlined"/>
+            <TextField label="בוגר קורס מגן בסייבר, בעל ניסיון משמעותי במכונות צילום. מקום 4 בתחרות הרכבים של גבעת אלה" disabled multiline variant="filled" rows={8} sx={{marginTop: '8px'}}/>
           </Stack>
         </Stack>
       </CardContainer>
