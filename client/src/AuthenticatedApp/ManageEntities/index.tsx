@@ -1,6 +1,6 @@
 import { Grid, ToggleButton, ToggleButtonGroup, Typography, Stack } from '@mui/material';
 import CardLink from '../CardLink';
-import ManageAlbums from './ManageAlbums';
+import ManageAlbums from './ManageMain';
 import ColorToggleButton from './toggle';
 
 const useStyles = () => {

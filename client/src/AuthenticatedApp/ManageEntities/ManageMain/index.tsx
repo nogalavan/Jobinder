@@ -6,12 +6,15 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { CardContainer } from '../../CardContainer';
 import ColorToggleButton from '../toggle';
 import { useState } from 'react';
-import NewJobDialog from './NewJobDialog';
+import NewJobDialog from './Modal/NewJobDialog';
 import useOpen from '../../../hooks/use-open';
 import useToggle from '../../../hooks/use-toggle';
 import InterestedDialog from './InterestedDialog';
 import { DisplayJobs } from './stubs/jobs';
 import { DisplayUsers } from './stubs/users';
+import ColorToggleButton from '../toggle';
+import CandidteDialog from './Modal';
+import { User } from '../../../types/User';
 
 const albums = [
   {
