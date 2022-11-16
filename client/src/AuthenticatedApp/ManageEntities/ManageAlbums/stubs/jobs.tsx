@@ -3,7 +3,7 @@ import useOpen from "../../../../hooks/use-open";
 import { CardContainer } from "../../../CardContainer";
 import InterestedDialog from "../InterestedDialog";
 
-export const jobs = [
+export let jobs = [
     {
         purpose: 'deveops',
         location: 'redhat',

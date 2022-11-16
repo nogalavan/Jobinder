@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Stack } from '@mui/material';
+import { jobs } from './stubs/jobs';
 
 interface Props {
     open: boolean;
@@ -13,6 +14,17 @@ interface Props {
 }
 
 const NewJobDialog = ({open, handleClose}: Props) => {
+  const saveJob = () => {
+    jobs.push({
+        purpose: document.getElementById('purpose')?.innerHTML ?? '',
+        location: document.getElementById('purpose')?.innerHTML ?? '',
+        employer: document.getElementById('purpose')?.innerHTML ?? '',
+        unit: document.getElementById('purpose')?.innerHTML ?? '',
+        description: document.getElementById('purpose')?.innerHTML ?? ''
+    })
+
+    handleClose()
+  }
 
   return (
     <div>
@@ -23,13 +35,13 @@ const NewJobDialog = ({open, handleClose}: Props) => {
                 <Stack direction='row' spacing={2}>
                     <TextField
                         required
-                        id="outlined-required"
+                        id="purpose"
                         label="שם תפקיד"
                         placeholder="שם תפקיד"
                     />
                     <TextField
                         required
-                        id="outlined-required"
+                        id="location"
                         label="מיקום"
                         placeholder="מיקום"
                     />
@@ -37,20 +49,20 @@ const NewJobDialog = ({open, handleClose}: Props) => {
                 <Stack direction='row' spacing={2}>
                     <TextField
                         required
-                        id="outlined-required"
+                        id="employer"
                         label="מעסיק"
                         placeholder="מעסיק"
                     />
                     <TextField
                         required
-                        id="outlined-required"
+                        id="unit"
                         label="שיוך ארגוני"
                         placeholder="שיוך ארגוני"
                     />
                 </Stack>
                 <TextField
                         required
-                        id="outlined-required"
+                        id="desciption"
                         label="תיאור תפקיד"
                         placeholder="תיאור תפקיד"
                     />
@@ -58,7 +70,7 @@ const NewJobDialog = ({open, handleClose}: Props) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} variant='contained' >ביטול</Button>
-          <Button onClick={handleClose} variant='contained' color='success'>שמור</Button>
+          <Button onClick={saveJob} variant='contained' color='success'>שמור</Button>
         </DialogActions>
       </Dialog>
     </div>
