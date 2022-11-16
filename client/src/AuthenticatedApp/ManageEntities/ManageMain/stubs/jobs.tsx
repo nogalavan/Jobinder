@@ -33,7 +33,7 @@ export const DisplayJobs = ({ handleCandidateOpen }: Props) => {
     console.log(jobss)
 
     useEffect(() => {
-        fetch("http://localhost:3004/jobs").then(
+        axios("http://localhost:3004/jobs").then(
             res => setJobs(res.data)
         )
     }, [])
