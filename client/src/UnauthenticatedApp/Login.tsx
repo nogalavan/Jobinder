@@ -1,7 +1,8 @@
-import { Button } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/Auth';
 import { User } from '../types/User';
+// import logo from '../../assets/noga.jpg';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,12 +20,31 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <Stack justifyContent='center' alignItems='center' sx={{height: '100%', backgroundColor: 'teal'}}>
+    <Card sx={{ width: '500px', height: '300px' }}>
+      <CardMedia
+        component="img"
+        height="180"
+        image="../../assets/noga.jpg"
+      />
+      <CardContent sx={{display: 'flex', justifyContent: 'center'}}>
+        <Typography gutterBottom variant="h5" component="div">
+          צהריים טובים, נגה לבן
+        </Typography>
+      </CardContent>
+      <CardActions sx={{display: 'flex', justifyContent: 'center', p: 0}}>
       <Button onClick={handleLogin} variant='contained' color='secondary'>
-        click to login!
+        לחץ להתחברות
       </Button>
-      <h1>login</h1>
-    </div>
+      </CardActions>
+    </Card>
+    </Stack>
+    // <Stack justifyContent='center' alignItems='center' sx={{height: '100%'}}>
+      // <Button onClick={handleLogin} variant='contained' color='secondary'>
+      //   click to login!
+      // </Button>
+    //   <h1>login</h1>
+    // </Stack>
   );
 };
 
