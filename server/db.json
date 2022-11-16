@@ -1,19 +1,58 @@
 {
-  "posts": [
+  "Users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "firstName": "מאיה",
+      "lastName": "ניומן",
+      "cv": "אני  מאיה ניומן",
+      "avatarImage": "",
+      "yearsOfExperience": " 10 דקות",
+      "rolesInCharge": [],
+      "dischargeDate": "2037",
+      "email": "mayamaya@walla.co.il"
+    },
+    {
+      "id": 2,
+      "firstName": "נוגה",
+      "lastName": "לבן",
+      "cv": "",
+      "avatarImage": "",
+      "yearsOfExperience": " ",
+      "rolesInCharge": [],
+      "dischargeDate": "",
+      "email": ""
     }
   ],
-  "comments": [
+  "jobs": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "purpose": "deveops",
+      "location": "redhat",
+      "employer": " הילי עמיר",
+      "unit": "הייטקס",
+      "description": "לגרד לי את הביצה הימנית בשביל 40000 שקל"
+    },
+    {
+      "id": 2,
+      "purpose": "תכניתן",
+      "location": "מקמר",
+      "employer": "גמזו",
+      "unit": "מבצעי",
+      "description": "מתן מה אומר מה אומר"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "JobApply": [
+    {
+      "id": 1,
+      "userId": 1,
+      "jobId": 1,
+      "description": "אני ממש ממש רוצה"
+    },
+    {
+      "id": 1,
+      "userId": 2,
+      "jobId": 1,
+      "description": "אני רוצה הרבה יותר יותר "
+    } 
+  ]
 }
