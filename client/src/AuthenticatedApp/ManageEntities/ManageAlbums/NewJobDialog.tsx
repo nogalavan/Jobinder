@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -26,13 +25,13 @@ const NewJobDialog = ({open, handleClose}: Props) => {
                         required
                         id="outlined-required"
                         label="שם תפקיד"
-                        defaultValue="שם תפקיד"
+                        placeholder="שם תפקיד"
                     />
                     <TextField
                         required
                         id="outlined-required"
                         label="מיקום"
-                        defaultValue="מיקום"
+                        placeholder="מיקום"
                     />
                 </Stack>
                 <Stack direction='row' spacing={2}>
@@ -40,20 +39,20 @@ const NewJobDialog = ({open, handleClose}: Props) => {
                         required
                         id="outlined-required"
                         label="מעסיק"
-                        defaultValue="מעסיק"
+                        placeholder="מעסיק"
                     />
                     <TextField
                         required
                         id="outlined-required"
                         label="שיוך ארגוני"
-                        defaultValue="שיוך ארגוני"
+                        placeholder="שיוך ארגוני"
                     />
                 </Stack>
                 <TextField
                         required
                         id="outlined-required"
                         label="תיאור תפקיד"
-                        defaultValue="תיאור תפקיד"
+                        placeholder="תיאור תפקיד"
                     />
             </Stack>
         </DialogContent>
