@@ -84,11 +84,13 @@ const ManageAlbums = () => {
               <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>{album.name}</Typography>
               <Typography variant='caption'>תיאור</Typography>
             </Stack>
-            <Divider orientation='vertical' flexItem />
-            <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
-            <Button variant='contained' color='success' onClick={handleInterestedOpen}> אני מעוניין בתפקיד!</Button>
-            </Stack>
-            
+            {alignment === 'android' && 
+            <> 
+              <Divider orientation='vertical' flexItem />
+              <Stack justifyContent='center' sx={{ padding: '10px', width: '13%' }}>
+                <Button variant='contained' color='success' onClick={handleInterestedOpen}> אני מעוניין בתפקיד!</Button>
+                </Stack>
+            </>}
           </Stack>
         </CardContainer>
       ))}
