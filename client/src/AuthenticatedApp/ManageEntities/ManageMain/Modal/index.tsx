@@ -1,14 +1,12 @@
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import { User } from '../../../../types/User';
 import { CardContainer } from "../../../CardContainer";
 import { Stack, Typography, Divider, Button } from "@mui/material";
 
 interface Props {
     open: boolean;
     handleClose: () => void
-    users: User[]
 }
 
 const Candidate = ({ open, handleClose, users }: Props) =>
