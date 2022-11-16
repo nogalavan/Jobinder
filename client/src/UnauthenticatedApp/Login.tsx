@@ -21,16 +21,21 @@ const Login = () => {
 
   return (
     <Stack justifyContent='center' alignItems='center' sx={{height: '100%', backgroundColor: 'teal'}}>
-    <Card sx={{ width: '500px', height: '300px' }}>
+    <Card sx={{ width: '500px', height: '350px' }}>
       <CardMedia
         component="img"
         height="180"
         image="../../assets/noga.jpg"
       />
-      <CardContent sx={{display: 'flex', justifyContent: 'center'}}>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent>
+        <Stack direction='column' justifyContent='center' alignItems='center'>
+        <Typography gutterBottom variant="h6" component="div">
           צהריים טובים, נגה לבן
         </Typography>
+        <Typography variant="subtitle2">
+          ברוך הבא לJobinder
+        </Typography>
+        </Stack>
       </CardContent>
       <CardActions sx={{display: 'flex', justifyContent: 'center', p: 0}}>
       <Button onClick={handleLogin} variant='contained' color='secondary'>
